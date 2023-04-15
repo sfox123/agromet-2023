@@ -1,0 +1,117 @@
+$color-dark: #AD611D
+$color-light: #FA841E
+$white: #fff
+$black: #000
+
+@mixin btn()
+    text-decoration: none
+    background-color: #FA2A7E
+    border: none
+    padding: 10px
+    width: 15rem
+    align-self: center
+    border-radius: 50px
+    font-family: 'Roboto', sans-serif
+    text-transform: uppercase
+    font-weight: 900
+    color: white
+    text-align: center
+    font-weight: 400
+    font-size: 1rem
+    cursor: pointer
+.section
+    &__drought
+        margin: 2rem
+        &__main
+            background-size: cover
+            height: 30rem
+            border-radius: 4px
+            box-shadow: 0 1.5rem 4rem rgba($black ,.2)
+            &__img
+                background-image: linear-gradient(105deg,rgba($white ,.7) 0%,rgba($white ,.7) 50%, transparent 50%),url(../img/io.jpg)
+            &__img__2
+                background-image: linear-gradient(105deg,rgba($white ,.9) 0%,rgba($white ,.9) 50%, transparent 50%),url(../img/loginBG2.jpg)
+
+.drought
+    width: 50%
+    padding: 2rem
+    &__para
+        width: 25rem
+        height: 13rem
+    &__radio
+        width: 49%
+        display: inline
+        &__group
+            display: inline
+            margin-left: 1rem
+            &:first-child
+                margin-left: 0
+    &__box
+        margin-top: 2rem
+        display: flex
+        flex-direction: column
+        align-content: center
+    &__btn
+        position: relative
+        margin-bottom: 2rem
+        transition: all .2s
+        display: inline-block
+        &:hover
+            transform: translateY(-3px)
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2)
+        &:link,
+        &:visited
+            @include btn()
+            margin-bottom: 2rem
+            transition: all .2s
+        &:active
+            transform: translateY(-1px)
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .2)
+        &::after
+            content: ''
+            display: inline-block
+            position: absolute
+            height: 100%
+            width: 100%
+            top: 0
+            left: 0
+            border-radius: 15px
+            z-index: -1
+            color: #fff
+            background-color: #FA2A7E
+            transition: all .4s
+        &:hover::after
+            transform: scaleX(1.4) scaleY(1.6)
+            opacity: 0
+
+.radio
+    visibility: hidden
+    &__btn
+        height: 1.2rem
+        width: 1.2rem
+        border-radius: 50%
+        position: absolute
+        display: inline-block
+        top: -.4rem
+        left: -1.5rem
+        border: 5px solid #FA2A7E
+        &::after
+            content: ''
+            height: .8rem
+            width: .8rem
+            border-radius: 50%
+            position: absolute
+            background-color: #FA2A7E
+            top: 50%
+            left: 50%
+            display: block
+            transform: translate(-50%,-50%)
+            transition: opacity .2s
+            opacity: 0
+    &:checked ~ &__label &__btn::after,&__selected::after
+
+        opacity: 1
+    &__label
+        padding-left: 1rem
+        cursor: pointer
+        position: relative

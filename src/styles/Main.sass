@@ -1,0 +1,61 @@
+@use './Nav.sass'
+@use './View.sass'
+@use './Drought.sass'
+@use './Login.sass'
+@use './ASC.sass'
+@use './Admin.sass'
+@use './Loader.sass'
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap')
+
+$bg: #f8f8ff
+
+@keyframes moveLeft
+    0%
+        opacity: 0
+        transform: translateX(-100px)
+
+    100%
+        opacity: 1
+        transform: translate(0)
+
+@keyframes sunLoop
+    0%
+        transform: rotate(20deg)
+    20%
+        transform: rotate(100deg)
+    40%
+        transform: rotate(180deg)
+    60%
+        transform: rotate(240deg)
+    80%
+        transform: rotate(320deg)
+    100%
+        transform: rotate(360deg)
+
+@mixin respond($breakpoint)
+    @if $breakpoint == phone
+        @media ( max-width: 37.5em )
+            @content
+    @if $breakpoint == tab
+        @media ( max-width: 56.25em )
+            @content
+
+body
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    background-color: $bg
+    font-family: 'Roboto'
+    overflow: scroll
+    scroll-behavior: smooth
+    @include respond(phone)
+        overflow: scroll
+.container
+    display: grid
+    grid-template-rows: 80px 1fr
+    grid-template-columns: .3fr 1fr
+    @include respond(phone)
+        grid-template-rows: 40px 1fr
+        grid-template-columns: .3fr 100%
